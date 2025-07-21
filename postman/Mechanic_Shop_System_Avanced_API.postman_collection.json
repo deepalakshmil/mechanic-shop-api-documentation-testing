@@ -1,0 +1,757 @@
+{
+  "info": {
+    "_postman_id": "f783bd86-c2bd-4c22-af69-a52610de7281",
+    "name": "Mechanic_Shop_System_Avanced_API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43848775"
+  },
+  "item": [
+    {
+      "name": "Customer_API",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTEzMDMyNTMsImlhdCI6MTc1MTI5OTY1Mywic3ViIjoiNiJ9.EAmof9q-eCuiHzVn5IP3tF4k4C6hcaoFYfbDdA5hSp4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n    \"email\": \"bala@gmail.com\",\r\n    \"password\" :\"bala\"\r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/customers/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["customers", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Customer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTEzMDg4MDQsImlhdCI6MTc1MTMwNTIwNCwic3ViIjoiNiJ9.B9oLwcKBpPvUkNKnpYhqrdUAzIMgxrXrrFvrKxFi60k",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n        \"address\": \"100st, Blueriech road\",\r\n        \"email\": \"rosee1@gmail.com\",\r\n        \"name\": \"kala\",\r\n        \"password\": \"rose\",\r\n        \"phone\": \"574-212-2675\",\r\n        \"salary\": 11000.0\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All Customers",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"address\": \"dddf\",\r\n    \"email\": \"ffqqq\",\r\n\r\n    \"name\": \"tt\",\r\n    \"phone\": \"2322122\",\r\n    \"salary\": 123.4\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All Customers from pagination",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"address\": \"dddf\",\r\n    \"email\": \"ffqqq\",\r\n\r\n    \"name\": \"tt\",\r\n    \"phone\": \"2322122\",\r\n    \"salary\": 123.4\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers?page=2&per_page=3",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "per_page",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Single Customer",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"address\": \"200, circle road\",\r\n    \"email\": \"raja@gmail.com\",\r\n   \r\n    \"name\": \"Rajaja\",\r\n    \"password\": \"raja\",\r\n    \"phone\": \"574-212-2675\",\r\n    \"salary\": 11000.0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/4",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "4"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit Auth customer details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTE1ODczOTksImlhdCI6MTc1MTU4Mzc5OSwic3ViIjoiMTIifQ.g9CZFw0V-yUifm5LarjcxkUa-RzFIijZqsg5jLZBECY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n      {  \"address\": \"100st, Blueriech road\",\r\n        \"email\": \"rosee1@gmail.com\",\r\n        \"id\": 12,\r\n        \"name\": \"kalakala\",\r\n        \"password\": \"rose\",\r\n        \"phone\": \"574-212-2675\",\r\n        \"salary\": 11000.0\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Auth customer details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTE1NzM0MTUsImlhdCI6MTc1MTU2OTgxNSwic3ViIjoiMTAifQ.0I5gxOL_sP9HiV4k6iLBWBkmpqVvW8nDNmVu9pFB598",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"address\": \"dddf\",\r\n    \"email\": \"ffqqq\",\r\n\r\n    \"name\": \"tt\",\r\n    \"phone\": \"2322122\",\r\n    \"salary\": 123.4\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Mechanics_API",
+      "item": [
+        {
+          "name": "Create New Mechanic",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":\"Gayu\",\r\n  \"address\":\"1/3, Northeast street\",\r\n  \"email\" : \"kanaa@gmajil.com\",\r\n  \"phone\":\"888-543-6785\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All Mechanics",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":\"muku\",\r\n  \"address\":\"1, Northeast street\",\r\n  \"email\" : \"mannn@gmajil.com\",\r\n  \"phone\":\"888-543-6785\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Single Mechanic",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":\"Gayu\",\r\n  \"address\":\"1/3, Northeast street\",\r\n  \"email\" : \"gayu@gmajil.com\",\r\n  \"phone\":\"888-543-6785\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Popular Mechanic",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":\"Gayu\",\r\n  \"address\":\"1/3, Northeast street\",\r\n  \"email\" : \"gayu@gmajil.com\",\r\n  \"phone\":\"888-543-6785\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/popular-mechanic",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "popular-mechanic"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Searching Result name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/search?name=l",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "search"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "l"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Mechanic details",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"address\": \"100, North street\",\r\n    \"email\": \"rani@gmajil.com\",\r\n    \"name\": \"Ranirani\",\r\n    \"phone\": \"997-543-6785\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/4",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "4"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Mechanic details",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":\"Gayu\",\r\n  \"address\":\"1/3, Northeast street\",\r\n  \"email\" : \"gayu@gmajil.com\",\r\n  \"phone\":\"888-543-6785\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/11",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "11"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Service_Tickets_API",
+      "item": [
+        {
+          "name": "Create Service tickets with mechanics",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"TTT567623463432\",\r\n    \"service_date\":\"2025-07-20\",\r\n    \"customer_issue\":\"Alternator failure\",\r\n    \"customer_id\": 3,\r\n     \"mechanic_ids\": [5,7]\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/with-mechanics",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "with-mechanics"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create service ticket",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"ds112123343432\",\r\n    \"service_date\":\"2016-10-20\",\r\n    \"customer_issue\":\"changing teir\",\r\n    \"customer_id\": 4\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Service ticket add on inventory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"inventory_id\" : 2,\r\n  \"quantity\" : 34\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/2/add_part",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "2", "add_part"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All service tickets",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"RRR567623463432\",\r\n    \"service_date\":\"2026-09-05\",\r\n    \"customer_issue\":\"Transmission issues\",\r\n    \"customer_id\": 1\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Single service ticket",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"RRR567623463432\",\r\n    \"service_date\":\"2026-09-05\",\r\n    \"customer_issue\":\"Transmission issues\",\r\n    \"customer_id\": 1\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All service in single customer",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTE1NzM5MTMsImlhdCI6MTc1MTU3MDMxMywic3ViIjoiMiJ9.K3vE-RsZA2CLIRgFqYQ9idPr_VeGJzqR59PLI8Ot-Xc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/my-tickets",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "my-tickets"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit service to add_remove mechanics",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"add_mechanic_ids\" : [3,4],\r\n   \"remove_mechanic_ids\":[1,2]\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/21",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "21"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Service assign Mechanics",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/15/assign-mechanic/3",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "15", "assign-mechanic", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Service remove Mechanic",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/5/remove-mechanic/1",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "5", "remove-mechanic", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Service Ticket",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"ds112123343432\",\r\n    \"service_date\":\"2016-10-20\",\r\n    \"customer_issue\":\"changing teir\",\r\n    \"customer_id\": 4\r\n\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/26",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "26"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Inventory_API",
+      "item": [
+        {
+          "name": "Create inventory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"name\" :\"priya\",\r\n   \"price\": 4500.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All Inventories",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"name\" :\"sathiya\",\r\n   \"price\": 500.00\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Single Inventory details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"PriyaPri\",\r\n    \"price\": 500.66\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update inventory",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \r\n    \"name\": \"mani\",\r\n    \"price\": 800.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/3",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete inventory",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"name\" :\"sathiya\",\r\n   \"price\": 500.00\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/10",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "10"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

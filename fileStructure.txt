@@ -1,0 +1,28 @@
+
+### Project Structure 
+##File Layout  of an Mechani Shop Advanced API in the Application Factory Pattern ###
+
+/project
+├── application/
+│   ├── __init__.py              # create_app() lives here
+│   ├── extensions.py            # Third-party extensions like DB, Marshmallow, JWT
+│   ├── blueprints/
+│   │   └── customer/
+│   │       ├── __init__.py      # Initialize Customer Blueprint
+│   │       ├── routes.py        # Customer routes/controllers
+│   │       └── schemas.py       # Customer Marshmallow schemas
+│   ├── static/
+│   │   └── swagger.yaml         # API documentation
+│   ├── utils/
+│   │   └── util.py              # JWT/token helper functions
+│   └── models.py                # All SQLAlchemy models
+│
+├── tests/
+│   └── test_customers.py        # Unit tests for customer routes
+│   ├── test_mechanics.py
+│   ├── test_service_tickets.py
+│   └── test_inventories.py
+
+├── app.py                       # Entry point to start the Flask app
+├── config.py                    # Configuration for dev/test/prod environments
+└── requirements.txt             # All dependencies
