@@ -20,7 +20,8 @@ securityDefinitions:
     in: header
     description: |
       Enter your bearer token in the format: `Bearer <token>`
-  ##========== Create Login for Customer (POST) ==========##
+
+##========== Create Login for Customer (POST) ==========##
 
 paths:
   /customers/login:
@@ -477,7 +478,6 @@ paths:
                 customer_issue: "changing teir"
                 customer_id: 4
                 id: 35
-                mechanics: []
                 service_date: "2016-10-20"
         400:
           description: Validation error or customer not found
@@ -811,9 +811,9 @@ paths:
             application/json:
               message: "The anusha New Inventory details added successfully"
               Inventory:
-                id: 13
+                id: 1
                 name: Bumper
-                price: 250.00
+                price: 300.00
 
     ##=======Documenting Get all Inventories Route (GET) =======##
 
@@ -852,8 +852,8 @@ paths:
           examples:
             application/json:
               id: 5
-              name: Grille
-              price: 500.0
+              name: Fenders
+              price: 150
 
     ##=======Documenting Update Inventory Route (PUT) ========##
 
@@ -883,8 +883,8 @@ paths:
             application/json:
               message: "Successfully Updated Inventory id: 2"
               id: 2
-              name: Brake Pads
-              price: 1300.00
+              name: Hood
+              price: 250
 
     ##=======Documenting Delete Inventory Route (Delete) =======##
 
@@ -1397,12 +1397,12 @@ definitions:
         example: "2025-07-11"
       customer_issue:
         type: string
-      mechanics:
-        type: array
-        items:
-          $ref: '#/definitions/Mechanic'
-        description: List of assigned mechanics. May be empty if none are assigned.
-        example: []
+      # mechanics:
+      #   type: array
+      #   items:
+      #     $ref: '#/definitions/Mechanic'
+      #   description: List of assigned mechanics. May be empty if none are assigned.
+      #   example: []
       customer:
         $ref: '#/definitions/CreateServiceCustomer'
 

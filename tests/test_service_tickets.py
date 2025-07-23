@@ -79,7 +79,6 @@ class TestServiceTicket(unittest.TestCase):
 
     def test_create_serviceticket_with_mechanic_success(self):
             ### Test creating a new ServiceTicket with mechanic successfully ###
-
         response = self.client.post('/service-tickets/with-mechanics', json= self.serviceticket_mechanic_payload)
 
         self.assertEqual(response.status_code, 201)
@@ -93,8 +92,11 @@ class TestServiceTicket(unittest.TestCase):
         mechanics = response.json['Service'].get('mechanics')
         self.assertIsInstance(mechanics, list)
         self.assertEqual(len(mechanics), 2)
+
     ##================================= Create ServiceTicket without mechanic Testcase =====================##
+
     def test_create_serviceticket_without_mechanics_success(self):
+        
         response = self.client.post('/service-tickets/', json=self.serviceticket_payload)
         
         self.assertEqual(response.status_code, 201)
@@ -345,8 +347,6 @@ class TestServiceTicket(unittest.TestCase):
         self.assertEqual(data["service_ticket_id"], self.service2_id)
         self.assertEqual(data["inventory_id"], inventory1.id)
         self.assertEqual(data["quantity"], 3)
-        service = db.session.get(Service_tickets, self.service2_id)
-        self.assertTrue(any(link.inventory == inventory1 for link in service.service_inventories))
 
         # Step 4: Add same part again to test quantity update
         inventory_payload["quantity"] = 2

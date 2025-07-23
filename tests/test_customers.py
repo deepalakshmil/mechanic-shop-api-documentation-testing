@@ -33,6 +33,12 @@ class TestCustomer(unittest.TestCase):
             "salary": 11000.0
         }
 
+    def test_customer_query_access(self):
+        with self.app.app_context():
+            count = db.session.query(Customer).count()
+            print("count", count)
+            self.assertIsInstance(count, int)
+            
     ##=============================== Create Customer Testcase =============================##
 
     def test_create_customer_success(self):

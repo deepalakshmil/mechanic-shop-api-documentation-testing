@@ -179,3 +179,7 @@ class TestInventory(unittest.TestCase):
         
         self.assertEqual(response.status_code, 404)
         self.assertEqual(response.json['error'], "Inventory not found.")
+
+
+    if __name__ == '__main__':
+        unittest.main()

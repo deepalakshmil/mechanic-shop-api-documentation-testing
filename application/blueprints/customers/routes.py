@@ -40,7 +40,7 @@ def login():
 #=================  Create User (POST)   ====================#
 
 @customers_bp.route('/', methods=['POST']) ## To make the Customer service high avabile limiting the number of input request implemented reat liming techique
-@limiter.limit("10 per hour") # limit this request to 10 times per hour
+@limiter.limit("40 per minute") # limit this request to 40 times per minute
 def create_customer():
 
     try:	# Deserialize and validate input Customer
@@ -81,7 +81,7 @@ def get_customers():
 
 @customers_bp.route("/", methods=['GET'])
 # @limiter.limit("3 per hour") # A client can only attempt to make(limit this request to 3 times per hour) 3 users per hour other way to call ("3/hour")
-# @cache.cached(timeout=30) ## To impove the get customers API performances configure cacheing mechanisham implemted simple cacheing
+@cache.cached(timeout=30, query_string=True) ## To impove the get customers API performances configure cacheing mechanisham implemted simple cacheing
 def get_customers():
     
     try:
@@ -153,7 +153,4 @@ def delete_customer(customer_id):
     
     return jsonify({"Message": f'customer id: {customer_id}, successfully deleted.'}), 200
 
-@customers_bp.route('/')
-def home():
-    return "Hi,Welcome in Our Mechanic Shop API with Application Factory Pattern"
 

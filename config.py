@@ -11,6 +11,6 @@ class TestingConfig:
     DEBUG = True
     CACHE_TYPE = 'SimpleCache'
 
-
 class ProductionConfig:
     pass
+    

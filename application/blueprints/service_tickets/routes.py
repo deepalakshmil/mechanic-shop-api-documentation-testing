@@ -19,7 +19,7 @@ def create_service_ticket_mechanics():
     except ValidationError as e:
         return jsonify(e.messages),400
     
-       #pull mechanic_ids out so you don't pass them into the model ctor
+    #pull mechanic_ids out so you don't pass them into the model ctor
     mechanic_ids = service_data.pop('mechanic_ids', [])
 
     # Retrieve the customer by its id.
@@ -27,8 +27,9 @@ def create_service_ticket_mechanics():
    
     # Check if the customer exists
     if customer:
-        
+        # Always add the service to the session BEFORE appending relationships
         new_service= Service_tickets(**service_data)
+        db.session.add(new_service)  # add to session before appending mechanics
 
         for mechanic_id in mechanic_ids:
             query = select(Mechanics).where(Mechanics.id == mechanic_id)
@@ -39,7 +40,6 @@ def create_service_ticket_mechanics():
             else:
                 return jsonify({"message": f"Invalid mechanic id: {mechanic_id}"})
 
-        db.session.add(new_service)  
         db.session.commit()
     
         return jsonify({"Message": "New service ticket details added successfully",
